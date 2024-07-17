@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&display=swap'); /* IMPORTANDO LA FUENTE DESDE GOOGLE FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root{
+    --color-primario: #000000; /* VARIABLES CSS : PARA OPTIMIZAR CODIGO EJEMPLO CUANNDO SE USA MUCHO UN COLOR: de abajo de llaman con var */ 
+    --color-segundario: #f6f6f6;
+    --color-terciario: #22D4FD;
+
+    --fuente-monserrat:"Montserrat", sans-serif;
+    --fuentes-krona:"Krona One", sans-serif;
+}
+
+* {
+    padding:0;    /*Box Model*/
+    margin:0;
+}
+.header {
+    
+    padding: 2% 0% 0% 10%;
+    
+}
+
+.header__menu {
+    display: flex;
+    gap: 80px;
+}
+
+.header__menu__link {
+    font-family: var(--fuente-monserrat);
+    font-size: 1.5rem; /* se van a cambiar todos los font-sixe de px a rem : 1rem=16px (RESPOSIVE)*/
+    font-weight: 600;
+    color: #22D4F2;
+    text-decoration: none;  /* QUITAR EL LINEADO DE LAS LETRAS */
+}
+
+body {
+    background-color: var(--color-primario);/*color fondo: llamando las variables css del */
+    color: var(--color-segundario);/*color texto Model*/
+    /* height: 100vh; que el body ocupe toda la pantalla*/ 
+    box-sizing: border-box;/*evita que el elemento hija salga del elemento padre*/
+}
+
+.tituloh1 {  /*punto para llamar clases*/
+    color: var(--color-terciario);
+}
+
+/*BOX-SIZING: tiene dos propirdades ---content-box y el border box---*/
+
+/*empezar a usar los conseptos de flexbox...*/
+.presentacion {
+    display: flex;    
+    align-items: center; /* centar los contenedores */
+    padding:3% 7%;
+    justify-content: space-between; /* alinear los elementos */
+    gap: 82px;
+
+}
+.presentacion__contenido {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+.presentacion__contenido__titulo {
+    font-size: 2.25rem;  /* tanaño de la fuente */
+    font-family: var(--fuentes-krona); /* NOMBRANDO LA FUENTE QUE ESTA EN LA PARTE SUPERIOR */
+}
+
+.presentacion__contenido_texto {
+    font-size: 1.5rem; /* igual a 24px */
+    font-family: var(--fuente-monserrat);
+    
+}
+
+.presentacion__enlaces {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;  /* alinear los botonees de manera vertical */
+    align-items: center; /*centar de manera vertical  */
+    gap: 20px;   /*el espacio entre botones  */
+
+
+}
+
+.presentacion__enlaces__subtitulos {
+    font-family: var(--fuentes-krona);
+    font-size: 1.5rem; /* igual a 24px */;
+    font-weight: 400;
+}
+
+.presentacion__enlaces_link{
+    width: 50%; 
+    text-align: center;  /* centrar el texto */
+    padding: 10.5px 0; /* primer valor es elhorizontal y el otro el vertical */
+    border-radius: 8px; /* bordes del boton */
+    font-family: var(--fuente-monserrat);
+    font-size: 1.5rem; /* igual a 24px */;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--color-segundario);
+    border: 2px solid #22D4F2; /* 2px es el borde del boton solid tipo de borde */
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.presentacion__enlaces_link:hover{  /* hover: evento que cuando se pasa el cursor en el boton cambie decolor  */
+    background-color: var(--color-primario) 
+}
+.presentacion__imagen {
+    width: 50%; /* ocupar 50% de la pantalla:usar % para que sea responsive */
+}
+
+.footer {
+    background-color: var(--color-terciario);
+    padding: 24px;
+    color: var(--color-primario);
+    text-align: center;
+    font-family: var(--fuente-monserrat);
+    font-weight: 500;
+}
+
+@media (max-width: 1200px){ /*responsive: colocando la imagen en el texto cuando se redusca a 1200px*/
+    .header{
+        padding: 10%;
+    }
+    
+    .header__menu {
+        justify-content: center;
+    }
+    .presentacion{
+        flex-direction: column-reverse; /*colocarlo en columna y el reverse es para dejar la imagen en la parte superior*/
+        padding: 5%;
+    }
+    .presentacion__contenido {
+        width: auto;  /*auto: siempres se adapta al elemto padre*/
+    }
+}
